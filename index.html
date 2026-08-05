@@ -10,8 +10,12 @@
 <!--------------------------------------------------HEADER SECTION------------------------------------------>
     <!--Since the site header contains the logo, main navigation links and search form, I grouped these elements inside one header. 
     This will make it easier to control their layout and appearance later with CSS-->
-    <header class="site-header">
-        
+
+<!-- NAV SECTION-->
+    <!--I used a nav element for the the main links that visitors will use to move between the different sections of the page. 
+        The unordered list can later be displayed vertically on mobile and horizontally on desktop with CSS-->
+    <nav class="main-navigation">
+
         <!--I used a div with the class "limit" to keep the header content centred and 
         prevent it from becoming too wide on large screens. This class can later be reused in other sections for a consistent layout.-->
         <div class="limit">
@@ -20,9 +24,6 @@
                     <img src="images/logo.png" alt="The three stars logo with the yellow background">
             </div>
                 
-            <!--I used a nav element for the the main links that visitors will use to move between the different sections of the page. 
-            The unordered list can later be displayed vertically on mobile and horizontally on desktop with CSS-->
-                <nav class="main-navigation">
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#aboutus">About Us</a></li>
@@ -30,7 +31,6 @@
                         <li><a href="#team">Team</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
-                </nav>
 
             <!--I used a form because the search input and its button work together. The label is connected to the input using the matching "for" and "id" attributes to make the form more accessible-->
                 <form class="search-form" action="#" method="get">
@@ -44,143 +44,144 @@
                     <button type="submit">Search</button>
                 </form>
         </div>
-    </header>
+    </nav>
 
-    <main>
-<!--------------------------------------------------MAIN CONTENT------------------------------------------>
-    <!-- WELCOME PAGE SECTION-->
-        
+<!-- WELCOME PAGE SECTION-->
         <!--Since this section introduces the company, I used the only h1 of the page for its main title. 
         The image, paragraph and call-to-action link are grouped inside the same content container so they can later be placed over the banner image with CSS-->
-         <section class="welcome-section" id="home">
-            <div class="welcome-content">
+    <header class="site-header">
+        <section class="welcome-section" id="home">
+            <article class="welcome-content">
                 <h1 class="welcome-title">Welcome to Three Star Media</h1>
                     <img src="images/main-banner.jpg" alt="The main banner consisting of a workspace">
                         <p class="welcome-paragraph">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum nulla a justo lacinia venenatis. Quisque magna nunc, vehicula eget fringilla sit amet, volutpat eget dolor!
                         </p>
                     <a href="#contact" class="button hero-button">Connect with us</a>
-            </div>
+            </article>
         </section>
-<!--------------------------------------------------ABOUT US SECTION------------------------------------------>
-    <!-- I used a section because About Us is a separate topic with its own heading. Its image and written content 
-    are placed in different divs so I can lay them out accurately to the mockup in CSS-->
-        <section class="about-section" id="about">
-            <div class="about-container">
+    </header>
+<!--------------------------------------------------MAIN CONTENT------------------------------------------>
+    <main>
+        <!----------ABOUT US SECTION---------->
+            <!-- I used a section because About Us is a separate topic with its own heading. Its image and written content 
+            are placed in different divs so I can lay them out accurately to the mockup in CSS-->
+                <section class="about-section" id="about">
+                    <article class="about-container">
 
-                <div class="about-image-container">
-                    <img src="images/about-us.jpg" alt="Modern office workspace with tables and chairs" 
-                    class="about-image">
-                </div>
+                        <div class="about-image-container">
+                            <img src="images/about-us.jpg" alt="Modern office workspace with tables and chairs" 
+                            class="about-image">
+                        </div>
 
-                <div class="about-content">
-                    <h2 class="about-title">About Us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante.</p>
-                    <p>Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.Praesent quis dui sed ligula mollis efficitur. Morbi viverra mi ac facilisis volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                </div>
-            </div>
-        </section>
-<!--------------------------------------------------SERVICES SECTION------------------------------------------>
-        <!--I used a section for all the services because they belong to the same topic. Each service will be placed 
-        inside its own article so the image, heading, paragraph and button remain grouped together. A shared class will allow the cards to receive consistent styling, then I can later create the desktop layout in CSS-->
-         <section class="services-section" id="services">
-            <div class="services-container">
-                <h2 class="section-title">Our Services</h2>
-                
-                <div class="services-grid">
-            <!-- five service articles here -->
-                    
-                    <!-- DIGITAL TRANSFORMATIONS INFOS-->
-                    <article class="service-card">
-                        <img src="images/digital.jpg" alt="Someone using their laptop and phone at the same time">
-                        <h3 class="section-title">Digital Transformation</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p> 
-                        <a href="#" class="button hero-button">Digital Plans</a>
-                    </article>
-
-                    <!-- MARKETING INFOS-->
-                    <article class="service-card">
-                    <img src="images/marketing.jpg" alt="Image of a laptop displaying statistics">
-                    <h3 class="section-title">Marketing</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p>
-                    <a href="#" class="button hero-button">Marketing Plans</a>
-                    </article>
-                    
-                    <!-- VIDEO PRODUCTION INFOS-->
-                    <article class="service-card">
-                    <img src="images/video.jpg" alt="Someone opening youtube on his phone">
-                    <h3 class="section-title">Video Production</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p> 
-                    <a href="#" class="button hero-button">Video Plans</a>
-                    </article>
-                    
-                    <!-- WEB DEVELOPMENT INFOS-->
-                    <article class="service-card">
-                    <img src="images/web.jpg" alt="an open book with a pen and phone displaying instagram on top">
-                    <h3 class="section-title">Web Development</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p> 
-                    <a href="#" class="button hero-button">Web Plans</a>
-                    </article>
-                    
-                    <!-- PRINT INFOS-->
-                    <article class="service-card">
-                    <img src="images/print.jpg" alt="an image with printers put on the sidewalk">
-                    <h3 class="section-title">Print</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p> 
-                    <a href="#" class="button hero-button">Print Plans</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-<!--------------------------------------------------VISION SECTION------------------------------------------>
-        <section class="vision-section">
-        <!--I created a separate section for the company vision because it is a different topic from the services. 
-        The image and text can later be positioned beside each other with CSS-->
-            <img src="images/vision.jpg" alt="Abstract origami-style boats" class="vision-image">
-                <div class="vision-content">
-                    <h2 class="vision-title">Our Vision</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a.</p>
-                    <a href="#" class="button vision-button">Learn More</a>
-                </div>
-        </section>
-<!--------------------------------------------------TEAM SECTION------------------------------------------>
-        <!--I used a section for the team because it has its own main heading. Each team member is placed inside 
-        an article because each person has independent content (image, name, role and description). It will be easier to organize the two members later in CSS-->
-        <section class="team-section" id="team">
-            <div class="limit">
-                <h2 class="section-title">Our Team</h2>
-
-                <div class="team-container">
-                    <article class="team-member">
-                        <img src="images/john.jpg" alt="Portrait of John Doe" class="team-image">
-                        <div class="team-content">
-                            <h3>John Doe</h3>
-                            <h4 class="team-role">CEO and Co-owner</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla</p>
+                        <div class="about-content">
+                            <h2 class="about-title">About Us</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante.</p>
+                            <p>Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.Praesent quis dui sed ligula mollis efficitur. Morbi viverra mi ac facilisis volutpat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
                         </div>
                     </article>
+                </section>
+        <!----------SERVICES SECTION---------->
+            <!--I used a section for all the services because they belong to the same topic. Each service will be placed 
+            inside its own article so the image, heading, paragraph and button remain grouped together. A shared class will allow the cards to receive consistent styling, then I can later create the desktop layout in CSS-->
+                <section class="services-section" id="services">
+                    <div class="services-container">
+                        <h2 class="section-title">Our Services</h2>
+                        
+                        <div class="services-grid">
+                            <!-- five service articles here -->
+                            
+                            <!-- DIGITAL TRANSFORMATIONS INFOS-->
+                            <article class="service-card">
+                                <img src="images/digital.jpg" alt="Someone using their laptop and phone at the same time">
+                                <h3 class="section-title">Digital Transformation</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p> 
+                                <a href="#" class="button hero-button">Digital Plans</a>
+                            </article>
 
-                    <article class="team-member">
-                        <img src="images/bob.jpg" alt="Portrait of Bob Rite" class="team-image">
-                        <div class="team-content">
-                            <h3>Bob Rite</h3>
-                            <h4 class="team-role">CFO and Co-owner</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla.</p>
+                            <!-- MARKETING INFOS-->
+                            <article class="service-card">
+                            <img src="images/marketing.jpg" alt="Image of a laptop displaying statistics">
+                            <h3 class="section-title">Marketing</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p>
+                            <a href="#" class="button hero-button">Marketing Plans</a>
+                            </article>
+                            
+                            <!-- VIDEO PRODUCTION INFOS-->
+                            <article class="service-card">
+                            <img src="images/video.jpg" alt="Someone opening youtube on his phone">
+                            <h3 class="section-title">Video Production</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p> 
+                            <a href="#" class="button hero-button">Video Plans</a>
+                            </article>
+                            
+                            <!-- WEB DEVELOPMENT INFOS-->
+                            <article class="service-card">
+                            <img src="images/web.jpg" alt="an open book with a pen and phone displaying instagram on top">
+                            <h3 class="section-title">Web Development</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p> 
+                            <a href="#" class="button hero-button">Web Plans</a>
+                            </article>
+                            
+                            <!-- PRINT INFOS-->
+                            <article class="service-card">
+                            <img src="images/print.jpg" alt="an image with printers put on the sidewalk">
+                            <h3 class="section-title">Print</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a. Praesent fermentum turpis sed iaculis ultrices. Aliquam non egestas ante. Morbi pulvinar dictum tortor, vitae lacinia tortor finibus eu. Morbi iaculis imperdiet erat, et maximus felis. Fusce rutrum ultricies ipsum eu congue. In hac habitasse platea dictumst.</p> 
+                            <a href="#" class="button hero-button">Print Plans</a>
+                            </article>
                         </div>
-                    </article>
-                </div>
+                    </div>
+                </section>
+        <!----------VISION SECTION---------->
+            <section class="vision-section">
+                <!--I created a separate section for the company vision because it is a different topic from the services. 
+                The image and text can later be positioned beside each other with CSS-->
+                <img src="images/vision.jpg" alt="Abstract origami-style boats" class="vision-image">
+                    <div class="vision-content">
+                        <h2 class="vision-title">Our Vision</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla. Aenean pellentesque rutrum nulla, eget rutrum turpis lobortis a.</p>
+                        <a href="#" class="button vision-button">Learn More</a>
+                    </div>
+            </section>
+        <!----------TEAM SECTION---------->
+            <!--I used a section for the team because it has its own main heading. Each team member is placed inside 
+            an article because each person has independent content (image, name, role and description). It will be easier to organize the two members later in CSS-->
+            <section class="team-section" id="team">
+                <div class="limit">
+                    <h2 class="section-title">Our Team</h2>
 
-            </div>
-        </section>
-<!--------------------------------------------------CONTACT US SECTION------------------------------------------>
-    <!--This section groups the message form, business hours and map because all three provide practical information for contacting or visiting the company. 
-    Separate containers will make it easier to create the desktop columns and mobile stacked layout with CSS-->
+                    <div class="team-container">
+                        <article class="team-member">
+                            <img src="images/john.jpg" alt="Portrait of John Doe" class="team-image">
+                            <div class="team-content">
+                                <h3>John Doe</h3>
+                                <h4 class="team-role">CEO and Co-owner</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla</p>
+                            </div>
+                        </article>
+
+                        <article class="team-member">
+                            <img src="images/bob.jpg" alt="Portrait of Bob Rite" class="team-image">
+                            <div class="team-content">
+                                <h3>Bob Rite</h3>
+                                <h4 class="team-role">CFO and Co-owner</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui urna, ultrices vitae cursus ut, mattis nec nulla.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </section>
+        <!----------CONTACT US SECTION---------->
+            <!--This section groups the message form, business hours and map because all three provide practical information for contacting or visiting the company. 
+            Separate containers will make it easier to create the desktop columns and mobile stacked layout with CSS-->
         <section class="contact-section" id="contact">
             <div class="contact-container">
                 <h2 class="section-title">Contact Us</h2>
-                <h3>Send us a message</h3>
 
                     <form class="contact-form" action="#" method="post">
+                        <h3>Send us a message</h3>
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input id="name" type="text" name="name">
@@ -198,9 +199,9 @@
 
                         <button type="submit">Send</button>
                     </form>
- <!--------------------------------------------------HOURS OF OPERATION SECTION------------------------------------------>
-<!--I used a table because the days and hours are represented and arranged in rows and columns. 
-The table headers identify what each column contains-->
+        <!----------HOURS OF OPERATION SECTION---------->
+            <!--I used a table because the days and hours are represented and arranged in rows and columns. 
+            The table headers identify what each column contains-->
                 <div class="hours-container">
                     <h3 class="section-title">Hours of operation</h3>
 
@@ -225,9 +226,8 @@ The table headers identify what each column contains-->
                         </tbody>
                     </table>
                 </div>
-
-    <!---------------- LOCATION ---------------->
-        <!--I used an iframe to embed the Google map provided for the location. CSS can later control its width and height, but the content inside the iframe cannot be styled directly-->
+        <!---------------- LOCATION ---------------->
+            <!--I used an iframe to embed the Google map provided for the location. CSS can later control its width and height, but the content inside the iframe cannot be styled directly-->
                 <div class="location-container">
                     <h3>Location</h3>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89726.36381199742!2d-75.90043585664061!3d45.349844399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0718cc4a6ad7%3A0xc6cc467725843e2b!2sColl%C3%A8ge%20algonquin!5e0!3m2!1sfr!2sca!4v1785892117007!5m2!1sfr!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Map showing the location of Three Star Media"></iframe>
