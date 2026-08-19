@@ -1,0 +1,691 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*
+    The Open Sans font is loaded from Google Fonts in the HTML.
+    I am using it as the main font throughout the webpage.
+*/
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #222;
+    line-height: 1.5;
+    background-color: white;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+.limit {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   HEADER
+   ================================================== */
+
+/*
+    I am using Flexbox for the header because the logo,
+    navigation and search form need to be aligned and
+    organized together. On mobile, these elements are
+    stacked vertically.
+*/
+
+.site-header {
+    background-color: #222;
+    color: white;
+}
+
+.site-header .limit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.logo {
+    width: 90px;
+}
+
+.main-navigation ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    list-style: none;
+}
+
+.main-navigation a {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+.main-navigation a:hover {
+    color: #c78c06;
+}
+
+.search-form {
+    display: flex;
+    width: 100%;
+}
+
+.search-form label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.search-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid white;
+    font-family: inherit;
+}
+
+.search-form button {
+    padding: 0.75rem 1rem;
+    border: 1px solid #c78c06;
+    background-color: #c78c06;
+    color: #222;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   WELCOME / HERO SECTION
+   ================================================== */
+
+/*
+    The welcome section uses the banner image as the background
+    of the hero area. The content is placed over the image so
+    that the layout matches the provided mockup.
+*/
+
+.welcome-section {
+    position: relative;
+    min-height: 500px;
+    background-image: url("../images/main-banner.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.welcome-content {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 3rem 1.5rem;
+    background-color: rgba(34, 34, 34, 0.85);
+    color: white;
+}
+
+/*
+    The image is already used as a CSS background, so it is
+    visually hidden while remaining in the HTML structure.
+*/
+
+.welcome-content > img {
+    display: none;
+}
+
+.welcome-title {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.welcome-paragraph {
+    margin-bottom: 1.5rem;
+}
+
+.hero-button {
+    background-color: #c78c06;
+    color: #222;
+}
+
+
+/* ==================================================
+   ABOUT US
+   ================================================== */
+
+/*
+    The image and text are kept in separate containers so
+    they can be stacked on mobile and placed beside each
+    other on larger screens.
+*/
+
+.about-section {
+    padding: 3rem 0;
+}
+
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image-container {
+    margin-bottom: 2rem;
+}
+
+.about-title {
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+}
+
+
+/* ==================================================
+   SERVICES
+   ================================================== */
+
+/*
+    I am using CSS Grid for the service cards. On mobile,
+    the cards appear in one column. The grid will be changed
+    to multiple columns in the desktop media query.
+*/
+
+.services-section {
+    padding: 3rem 0;
+    background-color: #ffe6ac;
+}
+
+.services-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.service-card {
+    background-color: white;
+    padding-bottom: 1.5rem;
+}
+
+.service-card h3,
+.service-card p,
+.service-card .button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.service-card h3 {
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    margin-bottom: 1.5rem;
+}
+
+.service-card .button {
+    margin-top: auto;
+}
+
+
+/* ==================================================
+   VISION
+   ================================================== */
+
+.vision-section {
+    background-color: #222;
+    color: white;
+}
+
+.vision-image {
+    width: 100%;
+}
+
+.vision-content {
+    padding: 3rem 5%;
+}
+
+.vision-title {
+    margin-bottom: 1rem;
+}
+
+.vision-content p {
+    margin-bottom: 1.5rem;
+}
+
+.vision-button {
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+
+/* ==================================================
+   TEAM
+   ================================================== */
+
+.team-section {
+    padding: 3rem 0;
+}
+
+.team-section > .limit {
+    width: 90%;
+}
+
+.team-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-member {
+    background-color: #ffe6ac;
+}
+
+.team-member + .team-member {
+    margin-top: 1.5rem;
+}
+
+.team-content {
+    padding: 1.5rem;
+}
+
+.team-content h3 {
+    margin-bottom: 0.25rem;
+}
+
+.team-role {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #c78c06;
+}
+
+
+/* ==================================================
+   CONTACT
+   ================================================== */
+
+.contact-section {
+    padding: 3rem 0;
+}
+
+.contact-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-container > h3 {
+    margin-bottom: 1rem;
+}
+
+.contact-form {
+    margin-bottom: 3rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #222;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background-color: #222;
+    color: white;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   HOURS OF OPERATION
+   ================================================== */
+
+.hours-container {
+    margin-bottom: 3rem;
+}
+
+.hours-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.hours-table th,
+.hours-table td {
+    padding: 0.75rem;
+    border: 1px solid #222;
+    text-align: left;
+}
+
+.hours-table th {
+    background-color: #222;
+    color: white;
+}
+
+.hours-table tr:nth-child(even) {
+    background-color: #ffe6ac;
+}
+
+
+/* ==================================================
+   LOCATION / GOOGLE MAP
+   ================================================== */
+
+.location-container iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: 0;
+}
+
+
+/* ==================================================
+   FOOTER
+   ================================================== */
+
+.site-footer {
+    padding: 2rem 0;
+    background-color: #222;
+    color: white;
+}
+
+.site-footer .limit {
+    width: 90%;
+}
+
+.site-footer p {
+    margin-bottom: 0.5rem;
+}
+
+
+/* ==================================================
+   DESKTOP - 760px AND ABOVE
+   ================================================== */
+
+/*
+    The media query changes the mobile layout into the desktop
+    layout shown in the mockup. I am using a minimum-width query
+    so the mobile-first styles remain the default.
+*/
+
+@media (min-width: 760px) {
+
+    /* ---------------- HEADER ---------------- */
+
+    .site-header .limit {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .logo {
+        flex: 0 0 90px;
+    }
+
+    .main-navigation ul {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .search-form {
+        width: 220px;
+        flex-shrink: 0;
+    }
+
+
+    /* ---------------- WELCOME ---------------- */
+
+    .welcome-section {
+        min-height: 600px;
+    }
+
+    .welcome-content {
+        width: 90%;
+        max-width: 1200px;
+        padding: 4rem;
+    }
+
+    .welcome-title {
+        max-width: 600px;
+        font-size: 3.5rem;
+    }
+
+    .welcome-paragraph {
+        max-width: 650px;
+    }
+
+
+    /* ---------------- ABOUT ---------------- */
+
+    .about-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .about-image-container,
+    .about-content {
+        flex: 1;
+    }
+
+    .about-image-container {
+        margin-bottom: 0;
+    }
+
+
+    /* ---------------- SERVICES ---------------- */
+
+    /*
+        CSS Grid is used here to create the multi-column
+        arrangement of the service cards shown on desktop.
+    */
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .service-card .button {
+        align-self: flex-start;
+    }
+
+
+    /* ---------------- VISION ---------------- */
+
+    .vision-section {
+        position: relative;
+        min-height: 450px;
+    }
+
+    .vision-image {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .vision-content {
+        position: relative;
+        z-index: 1;
+        width: 50%;
+        min-height: 450px;
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgba(34, 34, 34, 0.85);
+    }
+
+
+    /* ---------------- TEAM ---------------- */
+
+    .team-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .team-member {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .team-member + .team-member {
+        margin-top: 0;
+    }
+
+    .team-image {
+        width: 50%;
+        object-fit: cover;
+    }
+
+    .team-content {
+        width: 50%;
+    }
+
+
+    /* ---------------- CONTACT ---------------- */
+
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+
+    .contact-container > .section-title {
+        grid-column: 1 / -1;
+    }
+
+    .contact-container > h3 {
+        grid-column: 1 / -1;
+    }
+
+    .contact-form {
+        grid-column: 1;
+        margin-bottom: 0;
+    }
+
+    .hours-container {
+        grid-column: 2;
+    }
+
+    .location-container {
+        grid-column: 1 / -1;
+    }
+
+    .location-container iframe {
+        height: 450px;
+    }
+
+
+    /* ---------------- FOOTER ---------------- */
+
+    .site-footer .limit {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .site-footer p {
+        margin-bottom: 0;
+    }
+
+}
