@@ -58,12 +58,73 @@ table {
 }
 
 
+/*
+http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+/* ---------------- CSS RESET ---------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
 /* ---------------- GENERAL STYLES ---------------- */
 
 /*
 The Open Sans font is loaded from Google Fonts in the HTML.
 I am using it as the main font throughout the webpage.
 */
+/* ---------------- GENERAL STYLES ---------------- */
 
 body {
     font-family: "Open Sans", sans-serif;
@@ -103,8 +164,6 @@ a {
     font-weight: normal;
 }
 
-/* CSS triangle used instead of a text or emoji arrow */
-
 .button::after {
     content: "";
     display: inline-block;
@@ -117,12 +176,6 @@ a {
 
 /* ---------------- HEADER ---------------- */
 
-/*
-The header uses a black background.
-The logo, navigation and search form share the same header.
-On mobile, the elements are stacked vertically.
-*/
-
 .site-header {
     background-color: #222;
     color: white;
@@ -130,18 +183,20 @@ On mobile, the elements are stacked vertically.
 
 .main-navigation {
     background-color: #222;
+    padding-bottom: 1rem;
 }
 
 .main-navigation .limit {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
 }
 
 .logo {
-    width: 100%;
+    width: 180px;
     max-width: 180px;
     background-color: #c78c06;
+    align-self: flex-start;
 }
 
 .logo img {
@@ -151,18 +206,23 @@ On mobile, the elements are stacked vertically.
 .main-navigation ul {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     width: 100%;
+}
+
+.main-navigation li {
+    width: 100%;
+    text-align: center;
 }
 
 .main-navigation a {
     display: block;
-    padding: 0.6rem 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
     text-decoration: none;
     color: #c78c06;
 }
-
-/* Home is highlighted because it represents the current page */
 
 .main-navigation li:first-child a {
     background-color: #c78c06;
@@ -180,6 +240,7 @@ On mobile, the elements are stacked vertically.
 .search-form {
     display: flex;
     width: 100%;
+    height: 38px;
 }
 
 .search-form label {
@@ -192,22 +253,26 @@ On mobile, the elements are stacked vertically.
 .search-form input {
     flex: 1;
     min-width: 0;
+    height: 100%;
     padding: 0.45rem;
     border: 1px solid white;
     background-color: white;
     color: #222;
     font-family: inherit;
+    box-sizing: border-box;
 }
 
 .search-form button {
     width: 45px;
+    height: 100%;
     padding: 0;
-    border: none;
+    border: 1px solid #c78c06;
     background-color: #222;
     position: relative;
 }
 
-/* CSS magnifying glass */
+
+/* Centered magnifying glass */
 
 .search-form button::before {
     content: "";
@@ -216,8 +281,9 @@ On mobile, the elements are stacked vertically.
     height: 12px;
     border: 2px solid #c78c06;
     border-radius: 50%;
-    top: 12px;
-    left: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -60%);
 }
 
 .search-form button::after {
@@ -226,22 +292,17 @@ On mobile, the elements are stacked vertically.
     width: 7px;
     height: 2px;
     background-color: #c78c06;
+    top: calc(50% + 5px);
+    left: calc(50% + 5px);
     transform: rotate(45deg);
-    top: 26px;
-    left: 26px;
 }
 
 
 /* ---------------- WELCOME / HERO SECTION ---------------- */
 
-/*
-The welcome section uses the banner image as the background.
-The content is placed over the image.
-*/
-
 .welcome-section {
     position: relative;
-    min-height: 500px;
+    min-height: 450px;
     background-image: url("../images/main-banner.jpg");
     background-size: cover;
     background-position: center;
@@ -253,15 +314,11 @@ The content is placed over the image.
     width: 90%;
     margin: 0 auto;
     max-width: 1200px;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.5rem;
     background-color: rgba(34, 34, 34, 0.85);
     color: white;
+    box-sizing: border-box;
 }
-
-/*
-The image is already used as a CSS background,
-so it is visually hidden while remaining in the HTML.
-*/
 
 .welcome-content > img {
     display: none;
@@ -269,12 +326,14 @@ so it is visually hidden while remaining in the HTML.
 
 .welcome-title {
     margin-bottom: 1rem;
+    max-width: 300px;
     font-size: 2.5rem;
     line-height: 1.2;
     font-weight: bold;
 }
 
 .welcome-paragraph {
+    max-width: 100%;
     margin-bottom: 1.5rem;
 }
 
@@ -287,14 +346,8 @@ so it is visually hidden while remaining in the HTML.
 
 /* ---------------- ABOUT ---------------- */
 
-/*
-About Us is the only main section with the light yellow background.
-The image and text are stacked on mobile and placed side by side
-on larger screens.
-*/
-
 .about-section {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background-color: #ffe6ac;
     color: #222;
 }
@@ -306,7 +359,7 @@ on larger screens.
 }
 
 .about-image-container {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     padding: 0.5rem;
 }
 
@@ -318,15 +371,11 @@ on larger screens.
 
 .about-content p {
     margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 
 /* ---------------- SERVICES ---------------- */
-
-/*
-The Services section itself has a white background.
-Each individual service card has its own light yellow background.
-*/
 
 .services-section {
     padding: 3rem 0;
@@ -362,17 +411,12 @@ Each individual service card has its own light yellow background.
     margin-top: 1.25rem;
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .service-card p {
     margin-bottom: 1.5rem;
 }
-
-/*
-Service buttons have a black background and white text.
-The CSS triangle is automatically added by .button::after.
-*/
 
 .service-card .button {
     background-color: #222;
@@ -382,23 +426,32 @@ The CSS triangle is automatically added by .button::after.
 
 /* ---------------- VISION ---------------- */
 
-/*
-The image is the background of the Vision section.
-There is no black background behind the entire section.
-*/
-
 .vision-section {
     position: relative;
+    min-height: 400px;
     background-color: white;
     color: white;
+    overflow: hidden;
 }
 
 .vision-image {
+    position: absolute;
+    inset: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .vision-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 400px;
     padding: 3rem 5%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: transparent;
 }
 
@@ -409,7 +462,9 @@ There is no black background behind the entire section.
 }
 
 .vision-content p {
+    max-width: 100%;
     margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
 .vision-button {
@@ -424,13 +479,8 @@ There is no black background behind the entire section.
 
 /* ---------------- TEAM ---------------- */
 
-/*
-The mobile Team section keeps the white page background.
-Only the individual team member content has the light yellow background.
-*/
-
 .team-section {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background-color: white;
 }
 
@@ -441,6 +491,7 @@ Only the individual team member content has the light yellow background.
 .team-container {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 .team-member {
@@ -448,22 +499,22 @@ Only the individual team member content has the light yellow background.
 }
 
 .team-member + .team-member {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .team-content {
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .team-content h3 {
-    margin-bottom: 0.25rem;
-    font-size: 1.5rem;
+    margin-bottom: 0.15rem;
+    font-size: 1.25rem;
     font-weight: bold;
 }
 
 .team-role {
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
     border-bottom: 2px solid #c78c06;
 }
 
@@ -471,7 +522,7 @@ Only the individual team member content has the light yellow background.
 /* ---------------- CONTACT ---------------- */
 
 .contact-section {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background-color: white;
 }
 
@@ -482,7 +533,7 @@ Only the individual team member content has the light yellow background.
 }
 
 .contact-form {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .contact-form h3 {
@@ -522,20 +573,21 @@ Only the individual team member content has the light yellow background.
     color: #c78c06;
     font-family: inherit;
     font-weight: normal;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 
 /* ---------------- HOURS OF OPERATION ---------------- */
 
 .hours-container {
-    margin-bottom: 3rem;
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
 .hours-container h3 {
-    margin-bottom: 1rem;
-    font-size: 1.75rem;
-    font-weight: bold;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: normal;
 }
 
 .hours-table {
@@ -545,7 +597,7 @@ Only the individual team member content has the light yellow background.
 
 .hours-table th,
 .hours-table td {
-    padding: 0.75rem;
+    padding: 0.5rem;
     border: 1px solid #222;
 }
 
@@ -553,7 +605,7 @@ Only the individual team member content has the light yellow background.
     background-color: #c78c06;
     color: #222;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .hours-table td {
@@ -569,13 +621,14 @@ Only the individual team member content has the light yellow background.
 /* ---------------- LOCATION / GOOGLE MAP ---------------- */
 
 .location-container {
+    width: 100%;
     background-color: white;
 }
 
 .location-container h3 {
-    margin-bottom: 1rem;
-    font-size: 1.75rem;
-    font-weight: bold;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: normal;
 }
 
 .location-container iframe {
@@ -587,11 +640,6 @@ Only the individual team member content has the light yellow background.
 
 
 /* ---------------- FOOTER ---------------- */
-
-/*
-The footer remains black.
-The text is yellow and aligned to the left.
-*/
 
 .site-footer {
     padding: 1rem 0;
@@ -607,10 +655,7 @@ The text is yellow and aligned to the left.
     margin-bottom: 0.25rem;
 }
 
-
-/* ==================================================
-DESKTOP - 760px AND ABOVE
-================================================== */
+/*DESKTOP - 760px AND ABOVE*/
 
 /*
 The media query changes the mobile-first layout into
@@ -622,57 +667,67 @@ the desktop layout shown in the mockup.
 
     /* ---------------- HEADER ---------------- */
 
-    /*
-    Logo, navigation and search form are all placed
-    on the same horizontal line.
-    */
+    /*Logo, navigation and search bar are all placed on the same horizontal line.*/
 
-    .main-navigation .limit {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-    }
+/* ---------------- HEADER ---------------- */
 
-    /* Small square logo on desktop */
+.main-navigation .limit {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
 
-    .logo {
-        flex: 0 0 80px;
-        width: 80px;
-        height: 80px;
-        padding: 0;
-    }
+.logo {
+    flex: 0 0 80px;
+    width: 80px;
+    height: 80px;
+    padding: 0;
+}
 
-    .logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-    .main-navigation ul {
-        flex-direction: row;
-        align-items: center;
-        gap: 0.25rem;
-        flex: 1;
-    }
+.main-navigation ul {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+    gap: 0;
+}
 
-    .main-navigation a {
-        padding: 0.75rem 0.7rem;
-        color: #c78c06;
-    }
+.main-navigation li {
+    text-align: center;
+}
 
-    /* Home remains highlighted on desktop */
+.main-navigation a {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    color: #c78c06;
+}
 
-    .main-navigation li:first-child a {
-        background-color: #c78c06;
-        color: #222;
-    }
+.main-navigation li:first-child a {
+    background-color: #c78c06;
+    color: #222;
+}
 
-    .search-form {
-        width: 180px;
-        flex-shrink: 0;
-    }
+.search-form {
+    width: 220px;
+    height: 32px;
+    flex-shrink: 0;
+}
 
+.search-form input {
+    padding: 0.3rem 0.45rem;
+}
+
+.search-form button {
+    width: 40px;
+    border:1px solid #c78c06;
+}
 
     /* ---------------- WELCOME ---------------- */
 
@@ -681,19 +736,15 @@ the desktop layout shown in the mockup.
     }
 
     .welcome-content {
-        width: 90%;
-        max-width: 1200px;
-        padding: 4rem;
-    }
+    width: 70%;
+    max-width: 1200px;
+    padding: 2.5rem 3rem;
+}
 
     .welcome-title {
-        max-width: 600px;
+        max-width: 650px;
         font-size: 3.5rem;
         font-weight: bold;
-    }
-
-    .welcome-paragraph {
-        max-width: 650px;
     }
 
 
@@ -715,12 +766,22 @@ the desktop layout shown in the mockup.
         padding: 0.5rem;
     }
 
-
     /* ---------------- SERVICES ---------------- */
 
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    }
+
+    .service-card:nth-child(1),
+    .service-card:nth-child(2) {
+        grid-column: span 3;
+    }
+
+    .service-card:nth-child(3),
+    .service-card:nth-child(4),
+    .service-card:nth-child(5) {
+        grid-column: span 2;
     }
 
     .service-card {
@@ -741,33 +802,31 @@ the desktop layout shown in the mockup.
     No black overlay is added.
     */
 
-    .vision-section {
-        position: relative;
-        min-height: 450px;
-        background-color: transparent;
-    }
+  .vision-section {
+    position: relative;
+    min-height: 350px;
+    background-color: transparent;
+}
 
-    .vision-image {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+.vision-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    .vision-content {
-        position: relative;
-        z-index: 1;
-        width: 50%;
-        min-height: 450px;
-        padding: 5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-color: transparent;
-        box-sizing: border-box;
-    }
-
+.vision-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 350px;
+    padding: 3rem 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
 
     /* ---------------- TEAM ---------------- */
 
@@ -813,34 +872,33 @@ the desktop layout shown in the mockup.
     */
 
     .contact-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 2rem;
-        row-gap: 2rem;
-    }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
 
-    .contact-container > .section-title {
-        grid-column: 1 / -1;
-    }
+.contact-container > .section-title {
+    grid-column: 1;
+    grid-row: 1;
+}
 
-    .contact-form {
-        grid-column: 1;
-        margin-bottom: 0;
-    }
+.contact-form {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 0;
+}
 
-    .location-container {
-        grid-column: 2;
-    }
+.location-container {
+    grid-column: 2;
+    grid-row: 2;
+}
 
-    .hours-container {
-        grid-column: 1 / -1;
-        margin-bottom: 0;
-    }
-
-    .location-container iframe {
-        height: 450px;
-    }
-
+.hours-container {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-bottom: 0;
+}
 
     /* ---------------- FOOTER ---------------- */
 
