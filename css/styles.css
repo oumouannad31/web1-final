@@ -46,6 +46,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+* {
+    box-sizing: border-box;
+}
 /*I am using a CSS reset to remove the browser's default margins and padding. This gives me more control overthe spacing and layout of the page.*/
 
 /*****************GENERAL STYLES******************/
@@ -66,6 +69,16 @@ img {
 
 a {
     color: inherit;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .limit {
@@ -96,7 +109,7 @@ a {
     color: white;
 }
 
-.site-header .limit {
+.main-navigation .limit {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,7 +118,13 @@ a {
 }
 
 .logo {
-    width: 90px;
+    width: 100%;
+    background-color: #c78c06;
+    padding: 0.5rem 1rem;
+}
+
+.logo img {
+    width: 70px;
 }
 
 .main-navigation ul {
@@ -116,10 +135,24 @@ a {
     list-style: none;
 }
 
+.main-navigation {
+    background-color: #222;
+}
+
+.main-navigation a {
+    color: #c78c06;
+}
+
+.main-navigation li:first-child a {
+    background-color: #c78c06;
+    color: #222;
+}
+
 .main-navigation a {
     display: block;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     text-decoration: none;
+    color: #c78c06;
 }
 
 .main-navigation a:hover {
@@ -129,6 +162,7 @@ a {
 .search-form {
     display: flex;
     width: 100%;
+    background-color: #222;
 }
 
 .search-form label {
@@ -142,7 +176,9 @@ a {
     flex: 1;
     min-width: 0;
     padding: 0.75rem;
-    border: 1px solid white;
+    border: 1px solid #c78c06;
+    background-color: white;
+    color: #222;
     font-family: inherit;
 }
 
@@ -194,9 +230,9 @@ a {
     margin-bottom: 1.5rem;
 }
 
-.hero-button {
-    background-color: #c78c06;
-    color: #222;
+.service-card .button {
+    background-color: #222;
+    color: white;
 }
 
 /*****************ABOUT SECTION*******************/
@@ -205,6 +241,8 @@ a {
 
 .about-section {
     padding: 3rem 0;
+    background-color: #ffe6ac;
+    color: #222;
 }
 
 .about-container {
@@ -231,7 +269,8 @@ a {
 
 .services-section {
     padding: 3rem 0;
-    background-color: #ffe6ac;
+    background-color: white;
+    color: #222;
 }
 
 .services-container {
@@ -247,7 +286,7 @@ a {
 }
 
 .service-card {
-    background-color: white;
+    background-color: #ffe6ac;
     padding-bottom: 1.5rem;
 }
 
@@ -298,6 +337,8 @@ a {
 /*****************TEAM SECTION*******************/
 .team-section {
     padding: 3rem 0;
+    background-color: #ffe6ac;
+    color: #222;
 }
 
 .team-section > .limit {
@@ -335,6 +376,8 @@ a {
 /*****************CONTACT SECTION*******************/ 
 .contact-section {
     padding: 3rem 0;
+    background-color: #ffe6ac;
+    color: #222;
 }
 
 .contact-container {
@@ -359,7 +402,7 @@ a {
 
 .form-group label {
     margin-bottom: 0.4rem;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .form-group input,.form-group textarea {
@@ -374,18 +417,26 @@ a {
 }
 
 .contact-form button {
-    padding: 0.8rem 1.5rem;
-    border: none;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid #c78c06;
     background-color: #222;
-    color: white;
+    color: #c78c06;
     font-family: inherit;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 /* ==================================================HOURS OF OPERATION================================================== */
 
 .hours-container {
     margin-bottom: 3rem;
+}
+
+.hours-container h3,
+.location-container h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 .hours-table {
@@ -400,12 +451,12 @@ a {
 }
 
 .hours-table th {
-    background-color: #222;
-    color: white;
+    background-color: #c78c06;
+    color: #222;
 }
 
 .hours-table tr:nth-child(even) {
-    background-color: #ffe6ac;
+    background-color: white;
 }
 
 /* ==================================================LOCATION / GOOGLE MAP================================================== */
@@ -422,7 +473,7 @@ a {
 .site-footer {
     padding: 2rem 0;
     background-color: #222;
-    color: white;
+    color: #c78c06;
 }
 
 .site-footer .limit {
