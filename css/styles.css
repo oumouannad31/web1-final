@@ -1,13 +1,69 @@
-/* ==================================================
-GENERAL STYLES
-================================================== */
+/*
+http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
 
-/* The Open Sans font is loaded from Google Fonts in the HTML.
-I am using it as the main font throughout the webpage. */
+/* ---------------- CSS RESET ---------------- */
 
-* {
-    box-sizing: border-box;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* ---------------- GENERAL STYLES ---------------- */
+
+/*
+The Open Sans font is loaded from Google Fonts in the HTML.
+I am using it as the main font throughout the webpage.
+*/
 
 body {
     font-family: "Open Sans", sans-serif;
@@ -33,67 +89,81 @@ a {
 
 .section-title {
     margin-bottom: 1.5rem;
-    font-weight: bold;
     font-size: 2rem;
+    font-weight: bold;
 }
 
 .button {
     display: inline-block;
+    position: relative;
     padding: 0.8rem 1rem;
     background-color: #222;
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
 }
 
-/* Adds a small triangular arrow to buttons */
+/* CSS triangle used instead of a text or emoji arrow */
+
 .button::after {
-    content: " ▶";
-    font-size: 0.7em;
-    margin-left: 0.35rem;
+    content: "";
+    display: inline-block;
+    margin-left: 0.5rem;
+    border-left: 7px solid currentColor;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
 }
 
 
 /* ---------------- HEADER ---------------- */
 
-/* I am using Flexbox for the header because the logo,
-navigation and search form need to be aligned and
-organized together. On mobile, these elements are
-stacked vertically. */
+/*
+The header uses a black background.
+The logo, navigation and search form share the same header.
+On mobile, the elements are stacked vertically.
+*/
 
 .site-header {
     background-color: #222;
     color: white;
 }
 
-.site-header .limit {
+.main-navigation {
+    background-color: #222;
+}
+
+.main-navigation .limit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
 }
 
 .logo {
-    width: 90px;
+    width: 100%;
+    max-width: 180px;
+    background-color: #c78c06;
+}
+
+.logo img {
+    width: 100%;
 }
 
 .main-navigation ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    list-style: none;
+    width: 100%;
 }
 
 .main-navigation a {
     display: block;
-    padding: 0.5rem;
+    padding: 0.6rem 0.8rem;
     text-decoration: none;
     color: #c78c06;
 }
 
-/* Home is the active navigation item */
+/* Home is highlighted because it represents the current page */
+
 .main-navigation li:first-child a {
     background-color: #c78c06;
     color: #222;
@@ -103,6 +173,9 @@ stacked vertically. */
     background-color: #c78c06;
     color: #222;
 }
+
+
+/* ---------------- SEARCH ---------------- */
 
 .search-form {
     display: flex;
@@ -119,35 +192,52 @@ stacked vertically. */
 .search-form input {
     flex: 1;
     min-width: 0;
-    padding: 0.75rem;
+    padding: 0.45rem;
     border: 1px solid white;
+    background-color: white;
+    color: #222;
     font-family: inherit;
 }
 
 .search-form button {
-    width: 50px;
-    padding: 0.75rem;
-    border: 1px solid #c78c06;
-    background-color: #c78c06;
-    color: #222;
-    font-family: inherit;
-    font-weight: bold;
-    font-size: 0;
+    width: 45px;
+    padding: 0;
+    border: none;
+    background-color: #222;
+    position: relative;
 }
 
-/* Search icon */
+/* CSS magnifying glass */
+
+.search-form button::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #c78c06;
+    border-radius: 50%;
+    top: 12px;
+    left: 14px;
+}
+
 .search-form button::after {
-    content: "⌕";
-    font-size: 1.5rem;
-    font-weight: bold;
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 2px;
+    background-color: #c78c06;
+    transform: rotate(45deg);
+    top: 26px;
+    left: 26px;
 }
 
 
-/* ---------------- WELCOME ---------------- */
+/* ---------------- WELCOME / HERO SECTION ---------------- */
 
-/* The welcome section uses the banner image as the background
-of the hero area. The content is placed over the image so
-that the layout matches the provided mockup. */
+/*
+The welcome section uses the banner image as the background.
+The content is placed over the image.
+*/
 
 .welcome-section {
     position: relative;
@@ -168,8 +258,10 @@ that the layout matches the provided mockup. */
     color: white;
 }
 
-/* The image is already used as a CSS background,
-so it is visually hidden while remaining in the HTML structure. */
+/*
+The image is already used as a CSS background,
+so it is visually hidden while remaining in the HTML.
+*/
 
 .welcome-content > img {
     display: none;
@@ -189,17 +281,22 @@ so it is visually hidden while remaining in the HTML structure. */
 .hero-button {
     background-color: #c78c06;
     color: #222;
+    font-weight: normal;
 }
 
 
 /* ---------------- ABOUT ---------------- */
 
-/* The About Us section uses a light yellow background.
-The image and text are placed side by side on desktop. */
+/*
+About Us is the only main section with the light yellow background.
+The image and text are stacked on mobile and placed side by side
+on larger screens.
+*/
 
 .about-section {
     padding: 3rem 0;
     background-color: #ffe6ac;
+    color: #222;
 }
 
 .about-container {
@@ -210,16 +307,13 @@ The image and text are placed side by side on desktop. */
 
 .about-image-container {
     margin-bottom: 2rem;
+    padding: 0.5rem;
 }
 
 .about-title {
     margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: bold;
-}
-
-.about-content {
-    color: #222;
 }
 
 .about-content p {
@@ -229,14 +323,15 @@ The image and text are placed side by side on desktop. */
 
 /* ---------------- SERVICES ---------------- */
 
-/* I am using CSS Grid for the service cards.
-On mobile, the cards appear in one column.
-The desktop layout changes the final three services
-into an even vertical arrangement. */
+/*
+The Services section itself has a white background.
+Each individual service card has its own light yellow background.
+*/
 
 .services-section {
     padding: 3rem 0;
-    background-color: #ffe6ac;
+    background-color: white;
+    color: #222;
 }
 
 .services-container {
@@ -252,7 +347,7 @@ into an even vertical arrangement. */
 }
 
 .service-card {
-    background-color: white;
+    background-color: #ffe6ac;
     padding-bottom: 1.5rem;
 }
 
@@ -266,6 +361,7 @@ into an even vertical arrangement. */
 .service-card h3 {
     margin-top: 1.25rem;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -273,14 +369,23 @@ into an even vertical arrangement. */
     margin-bottom: 1.5rem;
 }
 
+/*
+Service buttons have a black background and white text.
+The CSS triangle is automatically added by .button::after.
+*/
+
 .service-card .button {
-    margin-top: auto;
+    background-color: #222;
+    color: white;
 }
 
 
 /* ---------------- VISION ---------------- */
 
-/* The image acts as the background of the vision section. */
+/*
+The image is the background of the Vision section.
+There is no black background behind the entire section.
+*/
 
 .vision-section {
     position: relative;
@@ -294,7 +399,7 @@ into an even vertical arrangement. */
 
 .vision-content {
     padding: 3rem 5%;
-    background-color: rgba(34, 34, 34, 0.85);
+    background-color: transparent;
 }
 
 .vision-title {
@@ -308,17 +413,21 @@ into an even vertical arrangement. */
 }
 
 .vision-button {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.5rem 0.75rem;
     border: 1px solid #c78c06;
     background-color: #222;
     color: white;
-    padding: 0.5rem 0.75rem;
 }
 
 
 /* ---------------- TEAM ---------------- */
 
-/* The Team section uses the normal white page background.
-Only each team member's information box has a light yellow background. */
+/*
+The mobile Team section keeps the white page background.
+Only the individual team member content has the light yellow background.
+*/
 
 .team-section {
     padding: 3rem 0;
@@ -335,24 +444,20 @@ Only each team member's information box has a light yellow background. */
 }
 
 .team-member {
-    background-color: white;
+    background-color: #ffe6ac;
 }
 
 .team-member + .team-member {
     margin-top: 1.5rem;
 }
 
-.team-image {
-    width: 100%;
-}
-
 .team-content {
     padding: 1.5rem;
-    background-color: #ffe6ac;
 }
 
 .team-content h3 {
     margin-bottom: 0.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -364,8 +469,6 @@ Only each team member's information box has a light yellow background. */
 
 
 /* ---------------- CONTACT ---------------- */
-
-/* Contact Us uses the normal white page background. */
 
 .contact-section {
     padding: 3rem 0;
@@ -380,6 +483,12 @@ Only each team member's information box has a light yellow background. */
 
 .contact-form {
     margin-bottom: 3rem;
+}
+
+.contact-form h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .form-group {
@@ -399,6 +508,7 @@ Only each team member's information box has a light yellow background. */
     padding: 0.75rem;
     border: 1px solid #222;
     font-family: inherit;
+    box-sizing: border-box;
 }
 
 .form-group textarea {
@@ -407,21 +517,25 @@ Only each team member's information box has a light yellow background. */
 
 .contact-form button {
     padding: 0.5rem 0.75rem;
-    border: 1px solid #c78c06;
+    border: 1px solid #222;
     background-color: #222;
     color: #c78c06;
     font-family: inherit;
-    font-weight: bold;
+    font-weight: normal;
+    text-transform: uppercase;
 }
 
 
 /* ---------------- HOURS OF OPERATION ---------------- */
 
-/* The table uses a white background except for
-the Days and Hours heading row. */
-
 .hours-container {
     margin-bottom: 3rem;
+}
+
+.hours-container h3 {
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    font-weight: bold;
 }
 
 .hours-table {
@@ -433,24 +547,36 @@ the Days and Hours heading row. */
 .hours-table td {
     padding: 0.75rem;
     border: 1px solid #222;
-    text-align: left;
 }
 
 .hours-table th {
     background-color: #c78c06;
     color: #222;
+    text-align: center;
+    font-weight: bold;
 }
 
 .hours-table td {
     background-color: white;
+    text-align: left;
 }
 
-.hours-table tr:nth-child(even) td {
+.hours-table tr:nth-child(even) {
     background-color: white;
 }
 
 
-/* ---------------- LOCATION ---------------- */
+/* ---------------- LOCATION / GOOGLE MAP ---------------- */
+
+.location-container {
+    background-color: white;
+}
+
+.location-container h3 {
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
 
 .location-container iframe {
     display: block;
@@ -459,19 +585,16 @@ the Days and Hours heading row. */
     border: 0;
 }
 
-.location-container h3,
-.hours-container h3 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
 
 /* ---------------- FOOTER ---------------- */
 
-/* The footer keeps a black background and yellow text. */
+/*
+The footer remains black.
+The text is yellow and aligned to the left.
+*/
 
 .site-footer {
-    padding: 2rem 0;
+    padding: 1rem 0;
     background-color: #222;
     color: #c78c06;
 }
@@ -481,7 +604,7 @@ the Days and Hours heading row. */
 }
 
 .site-footer p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 
@@ -489,24 +612,35 @@ the Days and Hours heading row. */
 DESKTOP - 760px AND ABOVE
 ================================================== */
 
+/*
+The media query changes the mobile-first layout into
+the desktop layout shown in the mockup.
+*/
+
 @media (min-width: 760px) {
+
 
     /* ---------------- HEADER ---------------- */
 
-    .site-header .limit {
+    /*
+    Logo, navigation and search form are all placed
+    on the same horizontal line.
+    */
+
+    .main-navigation .limit {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 2rem;
+        gap: 1rem;
     }
 
-    /* The desktop logo remains a small square. */
+    /* Small square logo on desktop */
+
     .logo {
-        flex: 0 0 90px;
-        width: 90px;
-        height: 90px;
-        padding: 0.5rem;
-        background-color: #c78c06;
+        flex: 0 0 80px;
+        width: 80px;
+        height: 80px;
+        padding: 0;
     }
 
     .logo img {
@@ -518,12 +652,16 @@ DESKTOP - 760px AND ABOVE
     .main-navigation ul {
         flex-direction: row;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.25rem;
+        flex: 1;
     }
 
     .main-navigation a {
+        padding: 0.75rem 0.7rem;
         color: #c78c06;
     }
+
+    /* Home remains highlighted on desktop */
 
     .main-navigation li:first-child a {
         background-color: #c78c06;
@@ -531,7 +669,7 @@ DESKTOP - 760px AND ABOVE
     }
 
     .search-form {
-        width: 220px;
+        width: 180px;
         flex-shrink: 0;
     }
 
@@ -577,11 +715,6 @@ DESKTOP - 760px AND ABOVE
         padding: 0.5rem;
     }
 
-    .about-image {
-        height: 100%;
-        object-fit: cover;
-    }
-
 
     /* ---------------- SERVICES ---------------- */
 
@@ -595,30 +728,29 @@ DESKTOP - 760px AND ABOVE
         flex-direction: column;
     }
 
-    /* The final three services are arranged evenly
-    as vertical rectangular cards. */
-    .service-card:nth-child(3),
-    .service-card:nth-child(4),
-    .service-card:nth-child(5) {
-        min-height: 500px;
-    }
-
     .service-card .button {
         align-self: flex-start;
+        margin-top: auto;
     }
 
 
     /* ---------------- VISION ---------------- */
 
+    /*
+    The photo covers the entire Vision section.
+    No black overlay is added.
+    */
+
     .vision-section {
         position: relative;
         min-height: 450px;
-        background-color: white;
+        background-color: transparent;
     }
 
     .vision-image {
         position: absolute;
         inset: 0;
+        width: 100%;
         height: 100%;
         object-fit: cover;
     }
@@ -632,16 +764,17 @@ DESKTOP - 760px AND ABOVE
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background-color: rgba(34, 34, 34, 0.85);
-    }
-
-    .vision-button {
-        align-self: flex-start;
-        width: fit-content;
+        background-color: transparent;
+        box-sizing: border-box;
     }
 
 
     /* ---------------- TEAM ---------------- */
+
+    /*
+    John: image on the left, text on the right.
+    Bob: text on the left, image on the right.
+    */
 
     .team-container {
         display: grid;
@@ -652,11 +785,14 @@ DESKTOP - 760px AND ABOVE
     .team-member {
         display: flex;
         align-items: stretch;
-        background-color: white;
     }
 
     .team-member + .team-member {
         margin-top: 0;
+    }
+
+    .team-member:nth-child(2) {
+        flex-direction: row-reverse;
     }
 
     .team-image {
@@ -666,57 +802,39 @@ DESKTOP - 760px AND ABOVE
 
     .team-content {
         width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    /* John has the image on the left. */
-    .team-member:first-child .team-image {
-        order: 1;
-    }
-
-    .team-member:first-child .team-content {
-        order: 2;
-    }
-
-    /* Bob has the image on the right. */
-    .team-member:nth-child(2) .team-image {
-        order: 2;
-    }
-
-    .team-member:nth-child(2) .team-content {
-        order: 1;
     }
 
 
     /* ---------------- CONTACT ---------------- */
 
-    /* Contact Us, Hours and Location remain on a white background.
-    Contact Us is followed by Hours, then Location. */
+    /*
+    Contact Us and Location are displayed side by side.
+    Hours of Operation appears underneath them.
+    */
 
     .contact-container {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 0;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+        row-gap: 2rem;
     }
 
     .contact-container > .section-title {
-        grid-column: 1;
+        grid-column: 1 / -1;
     }
 
     .contact-form {
         grid-column: 1;
-        margin-bottom: 3rem;
-    }
-
-    .hours-container {
-        grid-column: 1;
-        margin-bottom: 3rem;
+        margin-bottom: 0;
     }
 
     .location-container {
-        grid-column: 1;
+        grid-column: 2;
+    }
+
+    .hours-container {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
     }
 
     .location-container iframe {
@@ -724,25 +842,18 @@ DESKTOP - 760px AND ABOVE
     }
 
 
-    /* ---------------- HOURS OF OPERATION ---------------- */
-
-    .hours-table th,
-    .hours-table td {
-        padding: 0.75rem;
-    }
-
-
     /* ---------------- FOOTER ---------------- */
 
-    /* Footer text is displayed on two separate lines on desktop. */
+    /*
+    Footer text remains aligned to the left.
+    */
+
     .site-footer .limit {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+        display: block;
     }
 
     .site-footer p {
-        margin-bottom: 0;
+        margin-bottom: 0.25rem;
     }
+
 }

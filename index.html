@@ -13,59 +13,63 @@
 </head>
 <body>
 <!--------------------------------------------------HEADER SECTION------------------------------------------>
-    <!--Since the site header contains the logo, main navigation links and search form, I grouped these elements inside one header. 
-    This will make it easier to control their layout and appearance later with CSS-->
+   <!-- HEADER SECTION -->
 
-<!-- NAV SECTION-->
-    <!--I used a nav element for the the main links that visitors will use to move between the different sections of the page. 
-        The unordered list can later be displayed vertically on mobile and horizontally on desktop with CSS-->
+<header class="site-header">
+
+    <!-- NAV SECTION -->
+    <!-- The navigation contains the logo, main links and search form.
+    All elements share the same black header background. -->
+
     <nav class="main-navigation">
-
-        <!--I used a div with the class "limit" to keep the header content centred and 
-        prevent it from becoming too wide on large screens. This class can later be reused in other sections for a consistent layout.-->
         <div class="limit">
-                
-            <div class="logo">
-                    <img src="images/logo.png" alt="The three stars logo with the yellow background">
-            </div>
-                
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
 
-            <!--I used a form because the search input and its button work together. The label is connected to the input using the matching "for" and "id" attributes to make the form more accessible-->
-                <form class="search-form" action="#" method="get">
-                    <label for="site-search">Search</label>
-                    <input
+            <div class="logo">
+                <img src="images/logo.png" alt="The three stars logo with the yellow background">
+            </div>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <form class="search-form" action="#" method="get">
+                <label for="site-search">Search</label>
+                <input
                     type="search"
                     id="site-search"
                     name="search"
                     placeholder="Search">
+                <button type="submit" aria-label="Search"></button>
+            </form>
 
-                    <button type="submit">Search</button>
-                </form>
         </div>
     </nav>
 
-<!-- WELCOME PAGE SECTION-->
-        <!--Since this section introduces the company, I used the only h1 of the page for its main title. 
-        The image, paragraph and call-to-action link are grouped inside the same content container so they can later be placed over the banner image with CSS-->
-    <header class="site-header">
-        <section class="welcome-section" id="home">
-            <article class="welcome-content">
-                <h1 class="welcome-title">Welcome to Three Star Media</h1>
-                    <img src="images/main-banner.jpg" alt="The main banner consisting of a workspace">
-                        <p class="welcome-paragraph">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum nulla a justo lacinia venenatis. Quisque magna nunc, vehicula eget fringilla sit amet, volutpat eget dolor!
-                        </p>
-                    <a href="#contact" class="button hero-button">Connect with us</a>
-            </article>
-        </section>
-    </header>
+    <!-- WELCOME PAGE SECTION -->
+
+    <section class="welcome-section" id="home">
+        <article class="welcome-content">
+            <h1 class="welcome-title">Welcome to Three Star Media</h1>
+
+            <img src="images/main-banner.jpg"
+                 alt="The main banner consisting of a workspace">
+
+            <p class="welcome-paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed condimentum nulla a justo lacinia venenatis.
+                Quisque magna nunc, vehicula eget fringilla sit amet,
+                volutpat eget dolor!
+            </p>
+
+            <a href="#contact" class="button hero-button">Connect with us</a>
+        </article>
+    </section>
+
+</header>
 <!--------------------------------------------------MAIN CONTENT------------------------------------------>
     <main>
         <!----------ABOUT US SECTION---------->
