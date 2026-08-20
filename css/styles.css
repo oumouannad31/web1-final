@@ -1,10 +1,10 @@
+/* ---------------- CSS RESET ---------------- */
+
 /*
 http://meyerweb.com/eric/tools/css/reset/
 v2.0 | 20110126
 License: none (public domain)
 */
-
-/* ---------------- CSS RESET ---------------- */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -126,7 +126,7 @@ a text or emoji arrow.
 }
 
 
-/* ---------------- HEADER ---------------- */
+/* ---------------- HEADER SECTION ---------------- */
 
 .site-header {
     background-color: #222;
@@ -138,11 +138,7 @@ a text or emoji arrow.
     padding-bottom: 1rem;
 }
 
-/*
-Mobile-first layout:
-the logo, navigation links and search bar
-are stacked vertically.
-*/
+/*Mobile-first layout: the logo, navigation links and search bar are stacked vertically*/
 
 .main-navigation .limit {
     display: flex;
@@ -153,12 +149,10 @@ are stacked vertically.
 
 /* ---------------- LOGO ---------------- */
 
-/*
-On mobile, the yellow logo background takes the full width.
+/*On mobile, the yellow logo background takes the full width.
 The actual logo image stays on the left side.
 This allows the yellow area to connect visually
-with the highlighted Home link below it.
-*/
+with the highlighted Home link below it*/
 
 .logo {
     width: 100%;
@@ -199,10 +193,7 @@ with the highlighted Home link below it.
     color: #c78c06;
 }
 
-/*
-Home is highlighted because it represents
-the current page.
-*/
+/*Home is highlighted because it represents the current page*/
 
 .main-navigation li:first-child a {
     background-color: #c78c06;
@@ -242,11 +233,9 @@ the current page.
     box-sizing: border-box;
 }
 
-/*
-The search button uses CSS to create the magnifying glass.
+/*The search button uses CSS to create the magnifying glass.
 The 50% positioning keeps the icon centered vertically
-and horizontally inside its border.
-*/
+and horizontally inside its border*/
 
 .search-form button {
     width: 45px;
@@ -337,7 +326,7 @@ so the HTML image is visually hidden.
 }
 
 
-/* ---------------- ABOUT ---------------- */
+/* ---------------- ABOUT SECTION ---------------- */
 
 .about-section {
     padding: 2rem 0;
@@ -368,7 +357,7 @@ so the HTML image is visually hidden.
 }
 
 
-/* ---------------- SERVICES ---------------- */
+/* ---------------- SERVICES SECTION---------------- */
 
 .services-section {
     padding: 3rem 0;
@@ -423,7 +412,7 @@ the navigation/button appearance in the mockup.
 }
 
 
-/* ---------------- VISION ---------------- */
+/* ---------------- VISION SECTION---------------- */
 
 /*
 The image covers the entire Vision section.
@@ -481,7 +470,7 @@ a separate background color.
 }
 
 
-/* ---------------- TEAM ---------------- */
+/* ---------------- TEAM SECTION---------------- */
 
 .team-section {
     padding: 2rem 0;
@@ -523,7 +512,7 @@ a separate background color.
 }
 
 
-/* ---------------- CONTACT ---------------- */
+/* ---------------- CONTACT SECTION---------------- */
 
 .contact-section {
     padding: 2rem 0;
@@ -581,7 +570,7 @@ a separate background color.
 }
 
 
-/* ---------------- HOURS OF OPERATION ---------------- */
+/* ---------------- HOURS OF OPERATION SECTION ---------------- */
 
 .hours-container {
     width: 100%;
@@ -622,7 +611,7 @@ a separate background color.
 }
 
 
-/* ---------------- LOCATION / GOOGLE MAP ---------------- */
+/* ---------------- LOCATION SECTION ---------------- */
 
 .location-container {
     width: 100%;
@@ -643,7 +632,7 @@ a separate background color.
 }
 
 
-/* ---------------- FOOTER ---------------- */
+/* ---------------- FOOTER SECTION---------------- */
 
 .site-footer {
     padding: 1rem 0;
@@ -660,9 +649,7 @@ a separate background color.
 }
 
 
-/* ==================================================
-   DESKTOP - 760px AND ABOVE
-   ================================================== */
+/******************************** DESKTOP SECTION - 760px AND ABOVE ************************/
 
 /*
 The page uses a mobile-first approach.
@@ -673,13 +660,14 @@ and this media query changes the layout for desktop screens.
 @media (min-width: 760px) {
 
 
-    /* ---------------- HEADER ---------------- */
+    /* ---------------- HEADER SECTION ---------------- */
 
-    /*
-    On desktop, the logo, navigation links and search bar
-    are displayed on the same horizontal line.
-    */
+    /*On desktop, the logo, navigation links and search bar are displayed on the same horizontal line*/
 
+    .main-navigation {
+    padding-bottom: 0;
+    }
+    
     .main-navigation .limit {
         flex-direction: row;
         align-items: center;
@@ -687,9 +675,7 @@ and this media query changes the layout for desktop screens.
         gap: 1rem;
     }
 
-    /*
-    The desktop logo is smaller and kept as a square.
-    */
+    /*The desktop logo is smaller and kept as a square*/
 
     .logo {
         flex: 0 0 80px;
@@ -706,10 +692,7 @@ and this media query changes the layout for desktop screens.
         object-position: center;
     }
 
-    /*
-    Navigation links are distributed evenly across
-    the available space.
-    */
+    /*Navigation links are distributed evenly acrossthe available space*/
 
     .main-navigation ul {
         flex-direction: row;
@@ -736,9 +719,7 @@ and this media query changes the layout for desktop screens.
         color: #222;
     }
 
-    /*
-    The desktop search bar is slightly longer and thinner.
-    */
+    /*The desktop search bar is slightly longer and thinner*/
 
     .search-form {
         width: 220px;
@@ -756,7 +737,7 @@ and this media query changes the layout for desktop screens.
     }
 
 
-    /* ---------------- WELCOME ---------------- */
+    /* ---------------- WELCOME SECTION ---------------- */
 
     .welcome-section {
         min-height: 600px;
@@ -779,21 +760,16 @@ and this media query changes the layout for desktop screens.
         font-weight: bold;
     }
 
-    /*
-    The paragraph can extend across the available width
-    instead of being forced into a small text block.
-    */
+    /*The paragraph can extend across the available width instead of being forced into a small text block*/
 
     .welcome-paragraph {
         max-width: 100%;
     }
 
 
-    /* ---------------- ABOUT ---------------- */
+    /* ---------------- ABOUT SECTION ---------------- */
 
-    /*
-    On desktop, the image and text are placed side by side.
-    */
+    /*On desktop, the image and text are placed side by side*/
 
     .about-container {
         display: flex;
@@ -812,13 +788,11 @@ and this media query changes the layout for desktop screens.
     }
 
 
-    /* ---------------- SERVICES ---------------- */
+    /* ---------------- SERVICES SECTION ---------------- */
 
-    /*
-    The six-column grid allows the first two services
+    /*The six-column grid allows the first two services
     to appear on the first row and the final three services
-    to appear equally across the second row.
-    */
+    to appear equally across the second row*/
 
     .services-grid {
         grid-template-columns: repeat(6, 1fr);
@@ -847,13 +821,11 @@ and this media query changes the layout for desktop screens.
     }
 
 
-    /* ---------------- VISION ---------------- */
+    /* ---------------- VISION SECTION---------------- */
 
     /*
     The photo covers the entire Vision section.
-    The content is displayed directly over the image
-    with no separate background overlay.
-    */
+    The content is displayed directly over the image with no separate background overlay*/
 
     .vision-section {
         position: relative;
@@ -886,12 +858,10 @@ and this media query changes the layout for desktop screens.
     }
 
 
-    /* ---------------- TEAM ---------------- */
+    /* ---------------- TEAM SECTION---------------- */
 
-    /*
-    John: image on the left, text on the right.
-    Bob: text on the left, image on the right.
-    */
+    /*John: image on the left, text on the right.
+    Bob: text on the left, image on the right*/
 
     .team-container {
         display: grid;
@@ -922,14 +892,12 @@ and this media query changes the layout for desktop screens.
     }
 
 
-    /* ---------------- CONTACT ---------------- */
+    /* ---------------- CONTACT SECTION ---------------- */
 
-    /*
-    Contact Us and Location are displayed side by side.
+    /*Contact Us and Location are displayed side by side.
     Location is aligned with the "Send us a message"
     heading rather than with the main Contact Us heading.
-    Hours of Operation appears underneath both.
-    */
+    Hours of Operation appears underneath both*/
 
     .contact-container {
         display: grid;
@@ -965,11 +933,9 @@ and this media query changes the layout for desktop screens.
     }
 
 
-    /* ---------------- FOOTER ---------------- */
+    /* ---------------- FOOTER SECTION ---------------- */
 
-    /*
-    Footer text remains aligned to the left.
-    */
+    /*Footer text remains aligned to the left*/
 
     .site-footer .limit {
         display: block;
