@@ -15,10 +15,10 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav,
+output, ruby, section, summary, time, mark,
+audio, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -46,68 +46,10 @@ blockquote, q {
     quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-
-/*
-http://meyerweb.com/eric/tools/css/reset/
-v2.0 | 20110126
-License: none (public domain)
-*/
-
-/* ---------------- CSS RESET ---------------- */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-
-body {
-    line-height: 1;
-}
-
-ol, ul {
-    list-style: none;
-}
-
-blockquote, q {
-    quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
     content: '';
     content: none;
 }
@@ -122,9 +64,8 @@ table {
 
 /*
 The Open Sans font is loaded from Google Fonts in the HTML.
-I am using it as the main font throughout the webpage.
+It is used as the main font throughout the webpage.
 */
-/* ---------------- GENERAL STYLES ---------------- */
 
 body {
     font-family: "Open Sans", sans-serif;
@@ -142,6 +83,11 @@ a {
     color: inherit;
 }
 
+/*
+The .limit class keeps the content centered
+and prevents it from becoming too wide on large screens.
+*/
+
 .limit {
     width: 90%;
     max-width: 1200px;
@@ -153,6 +99,12 @@ a {
     font-size: 2rem;
     font-weight: bold;
 }
+
+/*
+General button styling.
+The triangle is created with CSS instead of using
+a text or emoji arrow.
+*/
 
 .button {
     display: inline-block;
@@ -186,22 +138,45 @@ a {
     padding-bottom: 1rem;
 }
 
+/*
+Mobile-first layout:
+the logo, navigation links and search bar
+are stacked vertically.
+*/
+
 .main-navigation .limit {
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
+
+/* ---------------- LOGO ---------------- */
+
+/*
+On mobile, the yellow logo background takes the full width.
+The actual logo image stays on the left side.
+This allows the yellow area to connect visually
+with the highlighted Home link below it.
+*/
+
 .logo {
-    width: 180px;
-    max-width: 180px;
+    width: 100%;
+    max-width: none;
+    height: 80px;
     background-color: #c78c06;
-    align-self: flex-start;
+    align-self: stretch;
 }
 
 .logo img {
-    width: 50%;
+    width: 180px;
+    height: 80px;
+    object-fit: contain;
+    object-position: left center;
 }
+
+
+/* ---------------- NAVIGATION ---------------- */
 
 .main-navigation ul {
     display: flex;
@@ -223,6 +198,11 @@ a {
     text-decoration: none;
     color: #c78c06;
 }
+
+/*
+Home is highlighted because it represents
+the current page.
+*/
 
 .main-navigation li:first-child a {
     background-color: #c78c06;
@@ -262,6 +242,12 @@ a {
     box-sizing: border-box;
 }
 
+/*
+The search button uses CSS to create the magnifying glass.
+The 50% positioning keeps the icon centered vertically
+and horizontally inside its border.
+*/
+
 .search-form button {
     width: 45px;
     height: 100%;
@@ -270,9 +256,6 @@ a {
     background-color: #222;
     position: relative;
 }
-
-
-/* Centered magnifying glass */
 
 .search-form button::before {
     content: "";
@@ -283,7 +266,7 @@ a {
     border-radius: 50%;
     top: 50%;
     left: 50%;
-    transform: translate(-60%, -60%);
+    transform: translate(-50%, -55%);
 }
 
 .search-form button::after {
@@ -299,6 +282,11 @@ a {
 
 
 /* ---------------- WELCOME / HERO SECTION ---------------- */
+
+/*
+The banner image is used as the background.
+The welcome content is placed over the image.
+*/
 
 .welcome-section {
     position: relative;
@@ -319,6 +307,11 @@ a {
     color: white;
     box-sizing: border-box;
 }
+
+/*
+The image is already used as a CSS background,
+so the HTML image is visually hidden.
+*/
 
 .welcome-content > img {
     display: none;
@@ -418,13 +411,25 @@ a {
     margin-bottom: 1.5rem;
 }
 
+/*
+Service buttons are slightly bolder to match
+the navigation/button appearance in the mockup.
+*/
+
 .service-card .button {
     background-color: #222;
     color: white;
+    font-weight: 600;
 }
 
 
 /* ---------------- VISION ---------------- */
+
+/*
+The image covers the entire Vision section.
+The text sits directly over the image without
+a separate background color.
+*/
 
 .vision-section {
     position: relative;
@@ -452,7 +457,6 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: transparent;
 }
 
 .vision-title {
@@ -587,7 +591,7 @@ a {
 .hours-container h3 {
     margin-bottom: 0.75rem;
     font-size: 1.5rem;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .hours-table {
@@ -602,7 +606,7 @@ a {
 }
 
 .hours-table th {
-    background-color: #c78c06;
+    background-color: #ffe6ac;
     color: #222;
     text-align: center;
     font-weight: normal;
@@ -628,7 +632,7 @@ a {
 .location-container h3 {
     margin-bottom: 0.75rem;
     font-size: 1.5rem;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .location-container iframe {
@@ -655,11 +659,15 @@ a {
     margin-bottom: 0.25rem;
 }
 
-/*DESKTOP - 760px AND ABOVE*/
+
+/* ==================================================
+   DESKTOP - 760px AND ABOVE
+   ================================================== */
 
 /*
-The media query changes the mobile-first layout into
-the desktop layout shown in the mockup.
+The page uses a mobile-first approach.
+The styles above are the default mobile styles,
+and this media query changes the layout for desktop screens.
 */
 
 @media (min-width: 760px) {
@@ -667,67 +675,86 @@ the desktop layout shown in the mockup.
 
     /* ---------------- HEADER ---------------- */
 
-    /*Logo, navigation and search bar are all placed on the same horizontal line.*/
+    /*
+    On desktop, the logo, navigation links and search bar
+    are displayed on the same horizontal line.
+    */
 
-/* ---------------- HEADER ---------------- */
+    .main-navigation .limit {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
 
-.main-navigation .limit {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
+    /*
+    The desktop logo is smaller and kept as a square.
+    */
 
-.logo {
-    flex: 0 0 80px;
-    width: 80px;
-    height: 80px;
-    padding: 0;
-}
+    .logo {
+        flex: 0 0 80px;
+        width: 80px;
+        height: 80px;
+        padding: 0;
+        align-self: auto;
+    }
 
-.logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
+    .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
 
-.main-navigation ul {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    flex: 1;
-    gap: 0;
-}
+    /*
+    Navigation links are distributed evenly across
+    the available space.
+    */
 
-.main-navigation li {
-    text-align: center;
-}
+    .main-navigation ul {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        flex: 1;
+        gap: 0;
+    }
 
-.main-navigation a {
-    display: inline-block;
-    padding: 1rem 1.5rem;
-    color: #c78c06;
-}
+    .main-navigation li {
+        text-align: center;
+        width: auto;
+    }
 
-.main-navigation li:first-child a {
-    background-color: #c78c06;
-    color: #222;
-}
+    .main-navigation a {
+        display: inline-block;
+        width: auto;
+        padding: 1rem 1.5rem;
+        color: #c78c06;
+    }
 
-.search-form {
-    width: 220px;
-    height: 32px;
-    flex-shrink: 0;
-}
+    .main-navigation li:first-child a {
+        background-color: #c78c06;
+        color: #222;
+    }
 
-.search-form input {
-    padding: 0.3rem 0.45rem;
-}
+    /*
+    The desktop search bar is slightly longer and thinner.
+    */
 
-.search-form button {
-    width: 40px;
-    border:1px solid #c78c06;
-}
+    .search-form {
+        width: 220px;
+        height: 32px;
+        flex-shrink: 0;
+    }
+
+    .search-form input {
+        padding: 0.3rem 0.45rem;
+    }
+
+    .search-form button {
+        width: 40px;
+        border: 1px solid #c78c06;
+    }
+
 
     /* ---------------- WELCOME ---------------- */
 
@@ -735,11 +762,16 @@ the desktop layout shown in the mockup.
         min-height: 600px;
     }
 
+    /*
+    The dark welcome content is kept inside the image
+    rather than covering the entire banner.
+    */
+
     .welcome-content {
-    width: 70%;
-    max-width: 1200px;
-    padding: 2.5rem 3rem;
-}
+        width: 70%;
+        max-width: 1200px;
+        padding: 2.5rem 3rem;
+    }
 
     .welcome-title {
         max-width: 650px;
@@ -747,8 +779,21 @@ the desktop layout shown in the mockup.
         font-weight: bold;
     }
 
+    /*
+    The paragraph can extend across the available width
+    instead of being forced into a small text block.
+    */
+
+    .welcome-paragraph {
+        max-width: 100%;
+    }
+
 
     /* ---------------- ABOUT ---------------- */
+
+    /*
+    On desktop, the image and text are placed side by side.
+    */
 
     .about-container {
         display: flex;
@@ -766,11 +811,18 @@ the desktop layout shown in the mockup.
         padding: 0.5rem;
     }
 
+
     /* ---------------- SERVICES ---------------- */
 
+    /*
+    The six-column grid allows the first two services
+    to appear on the first row and the final three services
+    to appear equally across the second row.
+    */
+
     .services-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.5rem;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1.5rem;
     }
 
     .service-card:nth-child(1),
@@ -799,34 +851,40 @@ the desktop layout shown in the mockup.
 
     /*
     The photo covers the entire Vision section.
-    No black overlay is added.
+    The content is displayed directly over the image
+    with no separate background overlay.
     */
 
-  .vision-section {
-    position: relative;
-    min-height: 350px;
-    background-color: transparent;
-}
+    .vision-section {
+        position: relative;
+        min-height: 350px;
+        background-color: transparent;
+    }
 
-.vision-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    .vision-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-.vision-content {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    min-height: 350px;
-    padding: 3rem 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box;
-}
+    .vision-content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        min-height: 350px;
+        padding: 3rem 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .vision-content p {
+        max-width: 100%;
+    }
+
 
     /* ---------------- TEAM ---------------- */
 
@@ -868,37 +926,44 @@ the desktop layout shown in the mockup.
 
     /*
     Contact Us and Location are displayed side by side.
-    Hours of Operation appears underneath them.
+    Location is aligned with the "Send us a message"
+    heading rather than with the main Contact Us heading.
+    Hours of Operation appears underneath both.
     */
 
     .contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 2rem;
-    row-gap: 2rem;
-}
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
 
-.contact-container > .section-title {
-    grid-column: 1;
-    grid-row: 1;
-}
+    .contact-container > .section-title {
+        grid-column: 1;
+        grid-row: 1;
+    }
 
-.contact-form {
-    grid-column: 1;
-    grid-row: 2;
-    margin-bottom: 0;
-}
+    .contact-form {
+        grid-column: 1;
+        grid-row: 2;
+        margin-bottom: 0;
+    }
 
-.location-container {
-    grid-column: 2;
-    grid-row: 2;
-}
+    .contact-form button {
+        text-transform: uppercase;
+    }
 
-.hours-container {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    margin-bottom: 0;
-}
+    .location-container {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .hours-container {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        margin-bottom: 0;
+    }
+
 
     /* ---------------- FOOTER ---------------- */
 
@@ -913,5 +978,4 @@ the desktop layout shown in the mockup.
     .site-footer p {
         margin-bottom: 0.25rem;
     }
-
 }
